@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <h1>Smart Recipe Generator</h1>
+            </div>
+            <p class="tagline">Transform your ingredients into delicious meals 🍳</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>What's in your kitchen?</h2>
+                <p>Enter your ingredients and discover amazing recipes you can make right now!</p>
+            </div>
+        </section>
+
+        <!-- Ingredient Input Section -->
+        <section class="card input-section">
+            <div class="section-header">
+                <i class="fas fa-search"></i>
+                <h2>Find Recipes</h2>
+            </div>
+            
+            <div class="input-group">
+                <div class="ingredient-input-container">
+                    <input type="text" id="ingredient-input" placeholder="Add ingredients (e.g., tomato, chicken, rice)...">
+                    <button id="add-ingredient" class="btn-primary">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+                
+                <div id="ingredients-list" class="ingredients-list">
+                    <!-- Ingredients will appear here -->
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="dietary-filter"><i class="fas fa-leaf"></i> Dietary:</label>
+                    <select id="dietary-filter">
+                        <option value="">Any</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                        <option value="non-vegetarian">Non-Vegetarian</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="time-filter"><i class="fas fa-clock"></i> Max Time:</label>
+                    <select id="time-filter">
+                        <option value="30">30 min</option>
+                        <option value="60">1 hour</option>
+                        <option value="120">2 hours</option>
+                        <option value="240">Any</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="difficulty-filter"><i class="fas fa-signal"></i> Difficulty:</label>
+                    <select id="difficulty-filter">
+                        <option value="">Any</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="find-recipes" class="btn-primary find-btn">
+                <i class="fas fa-magic"></i> Find Recipes
+            </button>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading-section" class="loading-section hidden">
+            <div class="loading-spinner"></div>
+            <p>Finding the perfect recipes for you...</p>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="hidden">
+            <div class="section-header">
+                <i class="fas fa-utensil-spoon"></i>
+                <h2>Recommended Recipes</h2>
+                <span id="results-count" class="results-count"></span>
+            </div>
+            <div id="recipes-container" class="recipes-grid">
+                <!-- Recipes will be displayed here -->
+            </div>
+        </section>
+
+        <!-- No Results Section -->
+        <section id="no-results" class="hidden">
+            <div class="empty-state">
+                <i class="fas fa-search"></i>
+                <h3>No recipes found</h3>
+                <p>Try adding more ingredients or adjusting your filters</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-recipe-content">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Made by Chaitanay Kapoor 22BIT0001.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>  
+    <script src="js/app.js"></script>
+    <script src="data/sample-recipes.js"></script>
+</body>
+</html>

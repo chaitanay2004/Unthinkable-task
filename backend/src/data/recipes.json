@@ -1,0 +1,854 @@
+[
+  {
+    "id": 1,
+    "name": "Vegetable Stir Fry",
+    "description": "A quick and healthy vegetable stir fry with colorful veggies and savory sauce",
+    "ingredients": [
+      {"name": "bell pepper", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "broccoli", "quantity": "1", "unit": "cup", "category": "vegetables"},
+      {"name": "carrot", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "soy sauce", "quantity": "2", "unit": "tbsp", "category": "sauces"},
+      {"name": "garlic", "quantity": "2", "unit": "cloves", "category": "vegetables"},
+      {"name": "ginger", "quantity": "1", "unit": "tbsp", "category": "vegetables"},
+      {"name": "olive oil", "quantity": "1", "unit": "tbsp", "category": "oils"}
+    ],
+    "instructions": [
+      "Chop all vegetables into bite-sized pieces",
+      "Heat olive oil in a large pan over medium heat",
+      "Add garlic and ginger, sauté for 1 minute",
+      "Add vegetables and stir fry for 5-7 minutes until tender",
+      "Add soy sauce and cook for another 2 minutes",
+      "Serve hot with rice or noodles"
+    ],
+    "cookingTime": 15,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "vegan"],
+    "nutrition": {
+      "calories": 180,
+      "protein": 6,
+      "carbs": 25,
+      "fat": 7
+    },
+    "cuisine": "Asian"
+  },
+  {
+    "id": 2,
+    "name": "Classic Spaghetti Carbonara",
+    "description": "Creamy Italian pasta dish with eggs, cheese, and pancetta",
+    "ingredients": [
+      {"name": "spaghetti", "quantity": "200", "unit": "g", "category": "pasta"},
+      {"name": "eggs", "quantity": "2", "unit": "pieces", "category": "dairy"},
+      {"name": "parmesan cheese", "quantity": "50", "unit": "g", "category": "dairy"},
+      {"name": "pancetta", "quantity": "100", "unit": "g", "category": "meat"},
+      {"name": "black pepper", "quantity": "1", "unit": "tsp", "category": "spices"},
+      {"name": "garlic", "quantity": "1", "unit": "clove", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Cook spaghetti according to package instructions",
+      "Fry pancetta until crispy, add garlic",
+      "Whisk eggs with grated parmesan and black pepper",
+      "Drain pasta and mix with pancetta (off heat)",
+      "Quickly stir in egg mixture to create creamy sauce",
+      "Serve immediately with extra parmesan"
+    ],
+    "cookingTime": 20,
+    "difficulty": "medium",
+    "servings": 2,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 450,
+      "protein": 22,
+      "carbs": 55,
+      "fat": 18
+    },
+    "cuisine": "Italian"
+  },
+  {
+    "id": 3,
+    "name": "Chickpea Salad",
+    "description": "Fresh and protein-packed chickpea salad with Mediterranean flavors",
+    "ingredients": [
+      {"name": "chickpeas", "quantity": "1", "unit": "can", "category": "legumes"},
+      {"name": "cucumber", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "tomato", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "red onion", "quantity": "0.5", "unit": "piece", "category": "vegetables"},
+      {"name": "lemon juice", "quantity": "2", "unit": "tbsp", "category": "condiments"},
+      {"name": "olive oil", "quantity": "1", "unit": "tbsp", "category": "oils"},
+      {"name": "parsley", "quantity": "0.25", "unit": "cup", "category": "herbs"}
+    ],
+    "instructions": [
+      "Rinse and drain chickpeas",
+      "Dice cucumber, tomatoes, and red onion",
+      "Chop parsley finely",
+      "Mix all ingredients in a large bowl",
+      "Add lemon juice, olive oil, salt and pepper",
+      "Let marinate for 10 minutes before serving"
+    ],
+    "cookingTime": 10,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "vegan", "gluten-free"],
+    "nutrition": {
+      "calories": 220,
+      "protein": 9,
+      "carbs": 30,
+      "fat": 8
+    },
+    "cuisine": "Mediterranean"
+  },
+  {
+    "id": 4,
+    "name": "Chicken Curry",
+    "description": "Aromatic and spicy chicken curry with rich tomato gravy",
+    "ingredients": [
+      {"name": "chicken", "quantity": "500", "unit": "g", "category": "meat"},
+      {"name": "onion", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "tomato", "quantity": "3", "unit": "pieces", "category": "vegetables"},
+      {"name": "garlic", "quantity": "4", "unit": "cloves", "category": "vegetables"},
+      {"name": "ginger", "quantity": "1", "unit": "inch", "category": "vegetables"},
+      {"name": "curry powder", "quantity": "2", "unit": "tbsp", "category": "spices"},
+      {"name": "coconut milk", "quantity": "1", "unit": "can", "category": "dairy"},
+      {"name": "oil", "quantity": "2", "unit": "tbsp", "category": "oils"}
+    ],
+    "instructions": [
+      "Heat oil in a pan and sauté onions until golden",
+      "Add ginger-garlic paste and cook for 1 minute",
+      "Add chicken and cook until it turns white",
+      "Add tomatoes and spices, cook until tomatoes are soft",
+      "Pour coconut milk and simmer for 15 minutes",
+      "Garnish with coriander and serve with rice"
+    ],
+    "cookingTime": 30,
+    "difficulty": "medium",
+    "servings": 4,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 320,
+      "protein": 28,
+      "carbs": 12,
+      "fat": 18
+    },
+    "cuisine": "Indian"
+  },
+  {
+    "id": 5,
+    "name": "Vegetable Omelette",
+    "description": "Fluffy omelette packed with fresh vegetables",
+    "ingredients": [
+      {"name": "eggs", "quantity": "3", "unit": "pieces", "category": "dairy"},
+      {"name": "bell pepper", "quantity": "0.5", "unit": "piece", "category": "vegetables"},
+      {"name": "onion", "quantity": "0.5", "unit": "piece", "category": "vegetables"},
+      {"name": "tomato", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "cheese", "quantity": "30", "unit": "g", "category": "dairy"},
+      {"name": "milk", "quantity": "2", "unit": "tbsp", "category": "dairy"},
+      {"name": "butter", "quantity": "1", "unit": "tbsp", "category": "dairy"}
+    ],
+    "instructions": [
+      "Whisk eggs with milk, salt and pepper",
+      "Chop all vegetables finely",
+      "Melt butter in a non-stick pan",
+      "Sauté vegetables for 2 minutes",
+      "Pour egg mixture over vegetables",
+      "Cook on low heat until set, add cheese",
+      "Fold and serve hot"
+    ],
+    "cookingTime": 10,
+    "difficulty": "easy",
+    "servings": 1,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 280,
+      "protein": 18,
+      "carbs": 8,
+      "fat": 20
+    },
+    "cuisine": "International"
+  },
+  {
+    "id": 6,
+    "name": "Mushroom Risotto",
+    "description": "Creamy Italian rice dish with earthy mushrooms",
+    "ingredients": [
+      {"name": "arborio rice", "quantity": "1", "unit": "cup", "category": "grains"},
+      {"name": "mushrooms", "quantity": "200", "unit": "g", "category": "vegetables"},
+      {"name": "onion", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "vegetable broth", "quantity": "4", "unit": "cups", "category": "sauces"},
+      {"name": "white wine", "quantity": "0.5", "unit": "cup", "category": "condiments"},
+      {"name": "parmesan cheese", "quantity": "50", "unit": "g", "category": "dairy"},
+      {"name": "butter", "quantity": "2", "unit": "tbsp", "category": "dairy"}
+    ],
+    "instructions": [
+      "Sauté onions in butter until translucent",
+      "Add mushrooms and cook until browned",
+      "Add rice and toast for 2 minutes",
+      "Pour wine and cook until absorbed",
+      "Add broth gradually, stirring constantly",
+      "Cook until rice is creamy but al dente",
+      "Stir in parmesan and serve immediately"
+    ],
+    "cookingTime": 35,
+    "difficulty": "medium",
+    "servings": 3,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 380,
+      "protein": 12,
+      "carbs": 65,
+      "fat": 14
+    },
+    "cuisine": "Italian"
+  },
+  {
+    "id": 7,
+    "name": "Bean Burritos",
+    "description": "Hearty Mexican burritos filled with beans and vegetables",
+    "ingredients": [
+      {"name": "tortilla", "quantity": "4", "unit": "pieces", "category": "bread"},
+      {"name": "black beans", "quantity": "1", "unit": "can", "category": "legumes"},
+      {"name": "rice", "quantity": "1", "unit": "cup", "category": "grains"},
+      {"name": "cheese", "quantity": "100", "unit": "g", "category": "dairy"},
+      {"name": "avocado", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "salsa", "quantity": "0.5", "unit": "cup", "category": "sauces"},
+      {"name": "sour cream", "quantity": "4", "unit": "tbsp", "category": "dairy"}
+    ],
+    "instructions": [
+      "Cook rice according to package instructions",
+      "Heat beans with spices",
+      "Warm tortillas in a pan",
+      "Layer rice, beans, cheese on tortilla",
+      "Add avocado and salsa",
+      "Roll tightly and serve with sour cream"
+    ],
+    "cookingTime": 20,
+    "difficulty": "easy",
+    "servings": 4,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 420,
+      "protein": 15,
+      "carbs": 58,
+      "fat": 16
+    },
+    "cuisine": "Mexican"
+  },
+  {
+    "id": 8,
+    "name": "Greek Salad",
+    "description": "Fresh Mediterranean salad with feta cheese and olives",
+    "ingredients": [
+      {"name": "cucumber", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "tomato", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "red onion", "quantity": "0.5", "unit": "piece", "category": "vegetables"},
+      {"name": "feta cheese", "quantity": "100", "unit": "g", "category": "dairy"},
+      {"name": "olives", "quantity": "0.5", "unit": "cup", "category": "condiments"},
+      {"name": "olive oil", "quantity": "3", "unit": "tbsp", "category": "oils"},
+      {"name": "lemon juice", "quantity": "1", "unit": "tbsp", "category": "condiments"}
+    ],
+    "instructions": [
+      "Chop cucumber, tomatoes, and red onion",
+      "Cut feta into cubes",
+      "Combine all vegetables in a bowl",
+      "Add olives and feta cheese",
+      "Dress with olive oil and lemon juice",
+      "Season with oregano, salt and pepper"
+    ],
+    "cookingTime": 10,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "gluten-free"],
+    "nutrition": {
+      "calories": 190,
+      "protein": 7,
+      "carbs": 12,
+      "fat": 14
+    },
+    "cuisine": "Mediterranean"
+  },
+  {
+  "id": 9,
+  "name": "Tofu Tikka Masala",
+  "description": "Creamy and aromatic Indian curry with marinated tofu in rich tomato gravy",
+  "ingredients": [
+    {"name": "tofu", "quantity": "400", "unit": "g", "category": "protein"},
+    {"name": "tomato", "quantity": "4", "unit": "pieces", "category": "vegetables"},
+    {"name": "onion", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+    {"name": "garlic", "quantity": "4", "unit": "cloves", "category": "vegetables"},
+    {"name": "ginger", "quantity": "1", "unit": "inch", "category": "vegetables"},
+    {"name": "heavy cream", "quantity": "1", "unit": "cup", "category": "dairy"},
+    {"name": "yogurt", "quantity": "0.5", "unit": "cup", "category": "dairy"},
+    {"name": "tikka masala spice", "quantity": "2", "unit": "tbsp", "category": "spices"},
+    {"name": "turmeric", "quantity": "1", "unit": "tsp", "category": "spices"},
+    {"name": "oil", "quantity": "3", "unit": "tbsp", "category": "oils"},
+    {"name": "lemon juice", "quantity": "2", "unit": "tbsp", "category": "condiments"}
+  ],
+  "instructions": [
+    "Press tofu to remove excess water, then cut into cubes",
+    "Marinate tofu in yogurt, lemon juice, and half the spices for 30 minutes",
+    "Sauté onions until golden brown, add ginger-garlic paste",
+    "Add chopped tomatoes and cook until soft and mushy",
+    "Blend the onion-tomato mixture into a smooth paste",
+    "Pan-fry marinated tofu until lightly browned",
+    "Add tomato gravy back to pan, stir in cream and remaining spices",
+    "Add fried tofu and simmer for 10 minutes on low heat",
+    "Garnish with fresh coriander and serve hot with naan or rice"
+  ],
+  "cookingTime": 45,
+  "difficulty": "medium",
+  "servings": 4,
+  "dietary": ["vegetarian"],
+  "nutrition": {
+    "calories": 320,
+    "protein": 18,
+    "carbs": 15,
+    "fat": 22
+  },
+  "cuisine": "Indian"
+},
+  {
+    "id": 10,
+    "name": "Vegetable Soup",
+    "description": "Hearty and comforting vegetable soup perfect for cold days",
+    "ingredients": [
+      {"name": "carrot", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "celery", "quantity": "2", "unit": "stalks", "category": "vegetables"},
+      {"name": "potato", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "onion", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "vegetable broth", "quantity": "6", "unit": "cups", "category": "sauces"},
+      {"name": "tomato", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "herbs", "quantity": "1", "unit": "tbsp", "category": "herbs"}
+    ],
+    "instructions": [
+      "Chop all vegetables into small pieces",
+      "Sauté onions in a large pot",
+      "Add carrots, celery and cook for 5 minutes",
+      "Add potatoes, tomatoes and broth",
+      "Bring to boil then simmer for 20 minutes",
+      "Add herbs and season to taste",
+      "Serve hot with bread"
+    ],
+    "cookingTime": 30,
+    "difficulty": "easy",
+    "servings": 4,
+    "dietary": ["vegetarian", "vegan", "gluten-free"],
+    "nutrition": {
+      "calories": 120,
+      "protein": 4,
+      "carbs": 25,
+      "fat": 2
+    },
+    "cuisine": "International"
+  },
+  {
+    "id": 11,
+    "name": "Salmon with Lemon Butter",
+    "description": "Pan-seared salmon with a zesty lemon butter sauce",
+    "ingredients": [
+      {"name": "salmon fillets", "quantity": "2", "unit": "pieces", "category": "seafood"},
+      {"name": "lemon", "quantity": "1", "unit": "piece", "category": "fruits"},
+      {"name": "butter", "quantity": "3", "unit": "tbsp", "category": "dairy"},
+      {"name": "garlic", "quantity": "2", "unit": "cloves", "category": "vegetables"},
+      {"name": "parsley", "quantity": "2", "unit": "tbsp", "category": "herbs"},
+      {"name": "olive oil", "quantity": "1", "unit": "tbsp", "category": "oils"}
+    ],
+    "instructions": [
+      "Pat salmon dry and season with salt and pepper",
+      "Heat oil in a pan over medium-high heat",
+      "Cook salmon skin-side down for 4-5 minutes",
+      "Flip and cook for 3-4 minutes more",
+      "Remove salmon, add butter and garlic to pan",
+      "Add lemon juice and parsley",
+      "Pour sauce over salmon and serve"
+    ],
+    "cookingTime": 15,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["non-vegetarian", "gluten-free"],
+    "nutrition": {
+      "calories": 320,
+      "protein": 30,
+      "carbs": 2,
+      "fat": 22
+    },
+    "cuisine": "International"
+  },
+  {
+    "id": 12,
+    "name": "Vegetable Lasagna",
+    "description": "Layered pasta with vegetables and creamy cheese sauce",
+    "ingredients": [
+      {"name": "lasagna sheets", "quantity": "12", "unit": "pieces", "category": "pasta"},
+      {"name": "spinach", "quantity": "200", "unit": "g", "category": "vegetables"},
+      {"name": "zucchini", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "ricotta cheese", "quantity": "250", "unit": "g", "category": "dairy"},
+      {"name": "mozzarella", "quantity": "200", "unit": "g", "category": "dairy"},
+      {"name": "tomato sauce", "quantity": "2", "unit": "cups", "category": "sauces"},
+      {"name": "onion", "quantity": "1", "unit": "piece", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Cook lasagna sheets according to package",
+      "Sauté vegetables until tender",
+      "Mix ricotta with herbs and seasonings",
+      "Layer tomato sauce, pasta, vegetables, ricotta",
+      "Repeat layers ending with mozzarella",
+      "Bake at 180°C for 30 minutes until golden",
+      "Let rest for 10 minutes before serving"
+    ],
+    "cookingTime": 50,
+    "difficulty": "medium",
+    "servings": 6,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 380,
+      "protein": 20,
+      "carbs": 45,
+      "fat": 16
+    },
+    "cuisine": "Italian"
+  },
+  {
+    "id": 13,
+    "name": "Chicken Stir Fry",
+    "description": "Quick and flavorful chicken stir fry with vegetables",
+    "ingredients": [
+      {"name": "chicken breast", "quantity": "2", "unit": "pieces", "category": "meat"},
+      {"name": "broccoli", "quantity": "1", "unit": "cup", "category": "vegetables"},
+      {"name": "bell pepper", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "carrot", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "soy sauce", "quantity": "3", "unit": "tbsp", "category": "sauces"},
+      {"name": "garlic", "quantity": "3", "unit": "cloves", "category": "vegetables"},
+      {"name": "ginger", "quantity": "1", "unit": "tbsp", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Cut chicken into bite-sized pieces",
+      "Chop all vegetables",
+      "Heat oil in a wok or large pan",
+      "Stir-fry chicken until cooked through",
+      "Add vegetables and cook until crisp-tender",
+      "Add soy sauce and aromatics",
+      "Serve hot with rice or noodles"
+    ],
+    "cookingTime": 20,
+    "difficulty": "easy",
+    "servings": 3,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 280,
+      "protein": 32,
+      "carbs": 15,
+      "fat": 10
+    },
+    "cuisine": "Asian"
+  },
+  {
+    "id": 14,
+    "name": "Caprese Salad",
+    "description": "Simple Italian salad with fresh mozzarella, tomatoes and basil",
+    "ingredients": [
+      {"name": "mozzarella cheese", "quantity": "200", "unit": "g", "category": "dairy"},
+      {"name": "tomato", "quantity": "3", "unit": "pieces", "category": "vegetables"},
+      {"name": "fresh basil", "quantity": "0.5", "unit": "cup", "category": "herbs"},
+      {"name": "olive oil", "quantity": "2", "unit": "tbsp", "category": "oils"},
+      {"name": "balsamic vinegar", "quantity": "1", "unit": "tbsp", "category": "condiments"}
+    ],
+    "instructions": [
+      "Slice tomatoes and mozzarella into similar sizes",
+      "Arrange alternating slices on a plate",
+      "Tuck fresh basil leaves between slices",
+      "Drizzle with olive oil and balsamic",
+      "Season with salt and black pepper",
+      "Serve immediately"
+    ],
+    "cookingTime": 5,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "gluten-free"],
+    "nutrition": {
+      "calories": 220,
+      "protein": 14,
+      "carbs": 8,
+      "fat": 16
+    },
+    "cuisine": "Italian"
+  },
+  {
+  "id": 15,
+  "name": "Paneer Butter Masala",
+  "description": "Rich and creamy North Indian curry with soft paneer cubes in buttery tomato sauce",
+  "ingredients": [
+    {"name": "paneer", "quantity": "400", "unit": "g", "category": "dairy"},
+    {"name": "tomato", "quantity": "6", "unit": "pieces", "category": "vegetables"},
+    {"name": "onion", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+    {"name": "cashew nuts", "quantity": "0.25", "unit": "cup", "category": "nuts"},
+    {"name": "butter", "quantity": "4", "unit": "tbsp", "category": "dairy"},
+    {"name": "heavy cream", "quantity": "0.5", "unit": "cup", "category": "dairy"},
+    {"name": "garlic", "quantity": "4", "unit": "cloves", "category": "vegetables"},
+    {"name": "ginger", "quantity": "1", "unit": "inch", "category": "vegetables"},
+    {"name": "kashmiri red chili", "quantity": "1", "unit": "tbsp", "category": "spices"},
+    {"name": "garam masala", "quantity": "1", "unit": "tsp", "category": "spices"},
+    {"name": "sugar", "quantity": "1", "unit": "tsp", "category": "condiments"},
+    {"name": "kasuri methi", "quantity": "1", "unit": "tsp", "category": "herbs"}
+  ],
+  "instructions": [
+    "Soak cashew nuts in warm water for 20 minutes",
+    "Blanch tomatoes in hot water, peel and chop them",
+    "Sauté onions in butter until translucent",
+    "Add tomatoes, ginger, garlic and cook until tomatoes are soft",
+    "Add soaked cashews and blend into a smooth paste",
+    "Strain the paste through a sieve for extra smoothness",
+    "Heat butter in a pan, add the strained gravy",
+    "Add all spices and cook until oil separates from sides",
+    "Add cream and cubed paneer, simmer for 5 minutes",
+    "Crush kasuri methi between palms and add to curry",
+    "Garnish with more cream and serve with naan or rice"
+  ],
+  "cookingTime": 40,
+  "difficulty": "medium",
+  "servings": 4,
+  "dietary": ["vegetarian"],
+  "nutrition": {
+    "calories": 380,
+    "protein": 16,
+    "carbs": 12,
+    "fat": 28
+  },
+  "cuisine": "Indian"
+},
+  {
+    "id": 16,
+    "name": "Vegetable Fried Rice",
+    "description": "Quick and easy fried rice loaded with vegetables",
+    "ingredients": [
+      {"name": "cooked rice", "quantity": "3", "unit": "cups", "category": "grains"},
+      {"name": "carrot", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "peas", "quantity": "0.5", "unit": "cup", "category": "vegetables"},
+      {"name": "egg", "quantity": "2", "unit": "pieces", "category": "dairy"},
+      {"name": "soy sauce", "quantity": "2", "unit": "tbsp", "category": "sauces"},
+      {"name": "green onion", "quantity": "3", "unit": "stalks", "category": "vegetables"},
+      {"name": "oil", "quantity": "2", "unit": "tbsp", "category": "oils"}
+    ],
+    "instructions": [
+      "Heat oil in a large wok or pan",
+      "Scramble eggs and set aside",
+      "Stir-fry vegetables until tender",
+      "Add cooked rice and break up clumps",
+      "Add soy sauce and mix well",
+      "Return eggs to pan, add green onions",
+      "Serve hot as main or side dish"
+    ],
+    "cookingTime": 15,
+    "difficulty": "easy",
+    "servings": 3,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 280,
+      "protein": 10,
+      "carbs": 45,
+      "fat": 8
+    },
+    "cuisine": "Asian"
+  },
+  {
+    "id": 17,
+    "name": "Margherita Pizza",
+    "description": "Classic Italian pizza with tomato, mozzarella and basil",
+    "ingredients": [
+      {"name": "pizza dough", "quantity": "1", "unit": "ball", "category": "bread"},
+      {"name": "tomato sauce", "quantity": "0.5", "unit": "cup", "category": "sauces"},
+      {"name": "mozzarella", "quantity": "200", "unit": "g", "category": "dairy"},
+      {"name": "fresh basil", "quantity": "10", "unit": "leaves", "category": "herbs"},
+      {"name": "olive oil", "quantity": "2", "unit": "tbsp", "category": "oils"},
+      {"name": "tomato", "quantity": "2", "unit": "pieces", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Preheat oven to 250°C",
+      "Roll out pizza dough on baking sheet",
+      "Spread tomato sauce evenly",
+      "Slice tomatoes and arrange on pizza",
+      "Add mozzarella slices",
+      "Bake for 10-12 minutes until crust is golden",
+      "Top with fresh basil and drizzle olive oil"
+    ],
+    "cookingTime": 20,
+    "difficulty": "medium",
+    "servings": 2,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 320,
+      "protein": 15,
+      "carbs": 45,
+      "fat": 12
+    },
+    "cuisine": "Italian"
+  },
+  {
+    "id": 18,
+    "name": "Lentil Soup",
+    "description": "Hearty and nutritious lentil soup with vegetables",
+    "ingredients": [
+      {"name": "lentils", "quantity": "1", "unit": "cup", "category": "legumes"},
+      {"name": "carrot", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "onion", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "celery", "quantity": "2", "unit": "stalks", "category": "vegetables"},
+      {"name": "vegetable broth", "quantity": "6", "unit": "cups", "category": "sauces"},
+      {"name": "garlic", "quantity": "3", "unit": "cloves", "category": "vegetables"},
+      {"name": "tomato", "quantity": "2", "unit": "pieces", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Rinse lentils thoroughly",
+      "Sauté onions, carrots and celery",
+      "Add garlic and cook for 1 minute",
+      "Add lentils, tomatoes and broth",
+      "Bring to boil then simmer for 30 minutes",
+      "Season with herbs and spices",
+      "Serve hot with bread"
+    ],
+    "cookingTime": 40,
+    "difficulty": "easy",
+    "servings": 4,
+    "dietary": ["vegetarian", "vegan", "gluten-free"],
+    "nutrition": {
+      "calories": 180,
+      "protein": 12,
+      "carbs": 32,
+      "fat": 2
+    },
+    "cuisine": "International"
+  },
+  {
+    "id": 19,
+    "name": "Chicken Salad Sandwich",
+    "description": "Creamy chicken salad in fresh bread with crisp vegetables",
+    "ingredients": [
+      {"name": "chicken breast", "quantity": "2", "unit": "pieces", "category": "meat"},
+      {"name": "bread", "quantity": "8", "unit": "slices", "category": "bread"},
+      {"name": "mayonnaise", "quantity": "3", "unit": "tbsp", "category": "condiments"},
+      {"name": "celery", "quantity": "2", "unit": "stalks", "category": "vegetables"},
+      {"name": "lettuce", "quantity": "4", "unit": "leaves", "category": "vegetables"},
+      {"name": "tomato", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "onion", "quantity": "0.25", "unit": "piece", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Cook chicken and let cool, then shred",
+      "Chop celery and onion finely",
+      "Mix chicken with mayonnaise and vegetables",
+      "Season with salt and pepper",
+      "Toast bread slices lightly",
+      "Assemble sandwiches with lettuce and tomato",
+      "Cut diagonally and serve"
+    ],
+    "cookingTime": 25,
+    "difficulty": "easy",
+    "servings": 4,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 320,
+      "protein": 22,
+      "carbs": 28,
+      "fat": 14
+    },
+    "cuisine": "American"
+  },
+  {
+    "id": 20,
+    "name": "Pasta with Pesto",
+    "description": "Simple pasta dish with fresh basil pesto sauce",
+    "ingredients": [
+      {"name": "pasta", "quantity": "250", "unit": "g", "category": "pasta"},
+      {"name": "basil", "quantity": "2", "unit": "cups", "category": "herbs"},
+      {"name": "pine nuts", "quantity": "3", "unit": "tbsp", "category": "nuts"},
+      {"name": "parmesan cheese", "quantity": "50", "unit": "g", "category": "dairy"},
+      {"name": "garlic", "quantity": "2", "unit": "cloves", "category": "vegetables"},
+      {"name": "olive oil", "quantity": "0.5", "unit": "cup", "category": "oils"},
+      {"name": "lemon juice", "quantity": "1", "unit": "tbsp", "category": "condiments"}
+    ],
+    "instructions": [
+      "Cook pasta according to package instructions",
+      "Toast pine nuts until golden",
+      "Blend basil, garlic, pine nuts in food processor",
+      "Slowly add olive oil while blending",
+      "Stir in grated parmesan and lemon juice",
+      "Toss pesto with drained pasta",
+      "Serve with extra parmesan"
+    ],
+    "cookingTime": 20,
+    "difficulty": "easy",
+    "servings": 3,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 420,
+      "protein": 15,
+      "carbs": 55,
+      "fat": 18
+    },
+    "cuisine": "Italian"
+  },
+  {
+    "id": 21,
+    "name": "Quinoa Bowl",
+    "description": "Nutritious quinoa bowl with roasted vegetables and tahini dressing",
+    "ingredients": [
+      {"name": "quinoa", "quantity": "1", "unit": "cup", "category": "grains"},
+      {"name": "sweet potato", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "broccoli", "quantity": "1", "unit": "cup", "category": "vegetables"},
+      {"name": "chickpeas", "quantity": "1", "unit": "can", "category": "legumes"},
+      {"name": "tahini", "quantity": "2", "unit": "tbsp", "category": "condiments"},
+      {"name": "lemon juice", "quantity": "2", "unit": "tbsp", "category": "condiments"},
+      {"name": "olive oil", "quantity": "2", "unit": "tbsp", "category": "oils"}
+    ],
+    "instructions": [
+      "Cook quinoa according to package",
+      "Roast sweet potatoes and broccoli with oil",
+      "Rinse and drain chickpeas",
+      "Make tahini dressing with lemon juice",
+      "Combine quinoa with roasted vegetables",
+      "Add chickpeas and drizzle with dressing",
+      "Serve warm or cold"
+    ],
+    "cookingTime": 30,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "vegan", "gluten-free"],
+    "nutrition": {
+      "calories": 380,
+      "protein": 14,
+      "carbs": 58,
+      "fat": 12
+    },
+    "cuisine": "International"
+  },
+  {
+    "id": 22,
+    "name": "Fish Tacos",
+    "description": "Crispy fish tacos with cabbage slaw and creamy sauce",
+    "ingredients": [
+      {"name": "white fish", "quantity": "400", "unit": "g", "category": "seafood"},
+      {"name": "tortillas", "quantity": "8", "unit": "pieces", "category": "bread"},
+      {"name": "cabbage", "quantity": "2", "unit": "cups", "category": "vegetables"},
+      {"name": "lime", "quantity": "2", "unit": "pieces", "category": "fruits"},
+      {"name": "sour cream", "quantity": "0.5", "unit": "cup", "category": "dairy"},
+      {"name": "avocado", "quantity": "1", "unit": "piece", "category": "vegetables"},
+      {"name": "flour", "quantity": "0.5", "unit": "cup", "category": "grains"}
+    ],
+    "instructions": [
+      "Cut fish into strips and coat with flour",
+      "Pan-fry fish until golden and crispy",
+      "Shred cabbage and mix with lime juice",
+      "Warm tortillas in a dry pan",
+      "Make creamy sauce with sour cream and lime",
+      "Assemble tacos with fish, slaw and sauce",
+      "Serve with avocado slices"
+    ],
+    "cookingTime": 25,
+    "difficulty": "medium",
+    "servings": 4,
+    "dietary": ["non-vegetarian"],
+    "nutrition": {
+      "calories": 320,
+      "protein": 22,
+      "carbs": 35,
+      "fat": 12
+    },
+    "cuisine": "Mexican"
+  },
+  {
+    "id": 23,
+    "name": "Vegetable Curry",
+    "description": "Mild and creamy vegetable curry with coconut milk",
+    "ingredients": [
+      {"name": "potato", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "cauliflower", "quantity": "1", "unit": "cup", "category": "vegetables"},
+      {"name": "carrot", "quantity": "2", "unit": "pieces", "category": "vegetables"},
+      {"name": "peas", "quantity": "0.5", "unit": "cup", "category": "vegetables"},
+      {"name": "coconut milk", "quantity": "1", "unit": "can", "category": "dairy"},
+      {"name": "curry powder", "quantity": "2", "unit": "tbsp", "category": "spices"},
+      {"name": "onion", "quantity": "1", "unit": "piece", "category": "vegetables"}
+    ],
+    "instructions": [
+      "Sauté onions until translucent",
+      "Add curry powder and cook for 1 minute",
+      "Add chopped vegetables and stir to coat",
+      "Pour coconut milk and bring to simmer",
+      "Cook for 20 minutes until vegetables are tender",
+      "Add peas in last 5 minutes",
+      "Serve with rice or naan"
+    ],
+    "cookingTime": 30,
+    "difficulty": "easy",
+    "servings": 4,
+    "dietary": ["vegetarian", "vegan", "gluten-free"],
+    "nutrition": {
+      "calories": 220,
+      "protein": 6,
+      "carbs": 28,
+      "fat": 12
+    },
+    "cuisine": "Indian"
+  },
+  {
+    "id": 24,
+    "name": "Chocolate Chip Cookies",
+    "description": "Classic chewy chocolate chip cookies",
+    "ingredients": [
+      {"name": "flour", "quantity": "2", "unit": "cups", "category": "grains"},
+      {"name": "butter", "quantity": "1", "unit": "cup", "category": "dairy"},
+      {"name": "sugar", "quantity": "0.75", "unit": "cup", "category": "condiments"},
+      {"name": "brown sugar", "quantity": "0.75", "unit": "cup", "category": "condiments"},
+      {"name": "chocolate chips", "quantity": "2", "unit": "cups", "category": "sweets"},
+      {"name": "egg", "quantity": "2", "unit": "pieces", "category": "dairy"},
+      {"name": "vanilla extract", "quantity": "2", "unit": "tsp", "category": "condiments"}
+    ],
+    "instructions": [
+      "Preheat oven to 180°C",
+      "Cream butter and sugars until fluffy",
+      "Beat in eggs one at a time, add vanilla",
+      "Mix in flour gradually",
+      "Stir in chocolate chips",
+      "Drop spoonfuls onto baking sheet",
+      "Bake for 10-12 minutes until golden"
+    ],
+    "cookingTime": 25,
+    "difficulty": "easy",
+    "servings": 24,
+    "dietary": ["vegetarian"],
+    "nutrition": {
+      "calories": 180,
+      "protein": 2,
+      "carbs": 25,
+      "fat": 9
+    },
+    "cuisine": "American"
+  },
+  {
+    "id": 25,
+    "name": "Fruit Smoothie",
+    "description": "Refreshing and healthy fruit smoothie",
+    "ingredients": [
+      {"name": "banana", "quantity": "1", "unit": "piece", "category": "fruits"},
+      {"name": "strawberries", "quantity": "1", "unit": "cup", "category": "fruits"},
+      {"name": "yogurt", "quantity": "1", "unit": "cup", "category": "dairy"},
+      {"name": "milk", "quantity": "0.5", "unit": "cup", "category": "dairy"},
+      {"name": "honey", "quantity": "1", "unit": "tbsp", "category": "condiments"},
+      {"name": "ice", "quantity": "1", "unit": "cup", "category": "other"}
+    ],
+    "instructions": [
+      "Peel banana and chop strawberries",
+      "Add all fruits to blender",
+      "Add yogurt, milk and honey",
+      "Add ice cubes",
+      "Blend until smooth and creamy",
+      "Pour into glasses and serve immediately"
+    ],
+    "cookingTime": 5,
+    "difficulty": "easy",
+    "servings": 2,
+    "dietary": ["vegetarian", "gluten-free"],
+    "nutrition": {
+      "calories": 150,
+      "protein": 6,
+      "carbs": 28,
+      "fat": 3
+    },
+    "cuisine": "International"
+  }
+]

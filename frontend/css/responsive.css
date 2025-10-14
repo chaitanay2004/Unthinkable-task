@@ -1,0 +1,274 @@
+/* Additional responsive enhancements */
+@media (max-width: 1024px) {
+    .recipes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 1.2rem 0;
+    }
+
+    .hero {
+        padding: 3rem 0 2rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .ingredient-tag {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+    }
+
+    .suggestions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .recipe-image {
+        height: 180px;
+    }
+
+    .recipe-content {
+        padding: 1.5rem;
+    }
+
+    .recipe-title {
+        font-size: 1.3rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 1.2rem;
+    }
+
+    .btn-primary {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    .ingredient-input-container {
+        gap: 8px;
+    }
+
+    #ingredient-input {
+        padding: 14px 18px;
+        font-size: 1rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .recipe-card:hover {
+        transform: none;
+    }
+    
+    .btn-primary:hover {
+        transform: none;
+    }
+    
+    .card:hover {
+        transform: none;
+    }
+
+    .suggestion-card:hover {
+        transform: none;
+    }
+
+    .ingredient-tag:hover {
+        transform: none;
+    }
+
+    .action-btn:hover {
+        transform: none;
+    }
+
+    .nav-tab:hover:not(.active) {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #D10000;
+        --secondary-color: #008800;
+        --accent-color: #0066CC;
+        --text-color: #000000;
+        --light-color: #FFFFFF;
+        --box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .card {
+        border: 2px solid #000000;
+    }
+
+    .recipe-card {
+        border: 2px solid #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .recipe-card:hover {
+        transform: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: #E8EDF2;
+        --text-light: #A0AEC0;
+        --light-color: #2D3748;
+        --lighter-color: #4A5568;
+        --dark-color: #F7FAFC;
+        --gradient-card: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+    }
+
+    body {
+        background: linear-gradient(135deg, #2C5282 0%, #805AD5 100%);
+    }
+
+    #ingredient-input {
+        background: var(--lighter-color);
+        color: var(--text-color);
+        border-color: #4A5568;
+    }
+
+    .filter-group select {
+        background: var(--lighter-color);
+        color: var(--text-color);
+        border-color: #4A5568;
+    }
+
+    .ingredients-list li,
+    .instructions-list li,
+    .nutrition-item {
+        background: var(--lighter-color);
+        color: var(--text-color);
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .recipes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+
+    .hero-content h2 {
+        font-size: 4rem;
+    }
+
+    .hero-content p {
+        font-size: 1.6rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav-tabs,
+    .footer,
+    .recipe-actions,
+    .action-btn {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        max-height: 80vh;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .btn-primary {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+}
