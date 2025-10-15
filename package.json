@@ -4,8 +4,8 @@
   "description": "Frontend for Smart Recipe Generator",
   "main": "index.html",
   "scripts": {
-    "start": "live-server --port=3000",
-    "dev": "live-server --port=3000"
+    "start": "cd frontend && live-server --port=3000",
+    "dev": "cd frontend && live-server --port=3000"
   },
   "dependencies": {},
   "devDependencies": {

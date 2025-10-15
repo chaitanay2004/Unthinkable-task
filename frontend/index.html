@@ -29,91 +29,185 @@
             </div>
         </section>
 
-        <!-- Ingredient Input Section -->
-        <section class="card input-section">
-            <div class="section-header">
-                <i class="fas fa-search"></i>
-                <h2>Find Recipes</h2>
-            </div>
-            
-            <div class="input-group">
-                <div class="ingredient-input-container">
-                    <input type="text" id="ingredient-input" placeholder="Add ingredients (e.g., tomato, chicken, rice)...">
-                    <button id="add-ingredient" class="btn-primary">
-                        <i class="fas fa-plus"></i> Add
-                    </button>
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" data-tab="search">Search</button>
+            <button class="nav-tab" data-tab="upload">Image Search</button>
+            <button class="nav-tab" data-tab="favorites">Favorites</button>
+            <button class="nav-tab" data-tab="suggestions">Suggestions</button>
+        </div>
+
+        <!-- Search Tab -->
+        <div id="search-tab" class="tab-content active">
+            <!-- Ingredient Input Section -->
+            <section class="card input-section">
+                <div class="section-header">
+                    <i class="fas fa-search"></i>
+                    <h2>Find Recipes</h2>
                 </div>
                 
-                <div id="ingredients-list" class="ingredients-list">
-                    <!-- Ingredients will appear here -->
-                </div>
-            </div>
-
-            <!-- Filters -->
-            <div class="filters">
-                <div class="filter-group">
-                    <label for="dietary-filter"><i class="fas fa-leaf"></i> Dietary:</label>
-                    <select id="dietary-filter">
-                        <option value="">Any</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="gluten-free">Gluten-Free</option>
-                        <option value="non-vegetarian">Non-Vegetarian</option>
-                    </select>
+                <div class="input-group">
+                    <div class="ingredient-input-container">
+                        <input type="text" id="ingredient-input" placeholder="Add ingredients (e.g., tomato, chicken, rice)...">
+                        <button id="add-ingredient" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                    
+                    <div id="ingredients-list" class="ingredients-list">
+                        <!-- Ingredients will appear here -->
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <label for="time-filter"><i class="fas fa-clock"></i> Max Time:</label>
-                    <select id="time-filter">
-                        <option value="30">30 min</option>
-                        <option value="60">1 hour</option>
-                        <option value="120">2 hours</option>
-                        <option value="240">Any</option>
-                    </select>
+                <!-- Filters -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="dietary-filter"><i class="fas fa-leaf"></i> Dietary:</label>
+                        <select id="dietary-filter">
+                            <option value="">Any</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="gluten-free">Gluten-Free</option>
+                            <option value="non-vegetarian">Non-Vegetarian</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="time-filter"><i class="fas fa-clock"></i> Max Time:</label>
+                        <select id="time-filter">
+                            <option value="30">30 min</option>
+                            <option value="60">1 hour</option>
+                            <option value="120">2 hours</option>
+                            <option value="240">Any</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="difficulty-filter"><i class="fas fa-signal"></i> Difficulty:</label>
+                        <select id="difficulty-filter">
+                            <option value="">Any</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="filter-group">
-                    <label for="difficulty-filter"><i class="fas fa-signal"></i> Difficulty:</label>
-                    <select id="difficulty-filter">
-                        <option value="">Any</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
-                    </select>
+                <button id="find-recipes" class="btn-primary find-btn">
+                    <i class="fas fa-magic"></i> Find Recipes
+                </button>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loading-section" class="loading-section hidden">
+                <div class="loading-spinner"></div>
+                <p>Finding the perfect recipes for you...</p>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="hidden">
+                <div class="section-header">
+                    <i class="fas fa-utensil-spoon"></i>
+                    <h2>Recommended Recipes</h2>
+                    <span id="results-count" class="results-count"></span>
+                </div>
+                <div id="recipes-container" class="recipes-grid">
+                    <!-- Recipes will be displayed here -->
+                </div>
+            </section>
+
+            <!-- No Results Section -->
+            <section id="no-results" class="hidden">
+                <div class="empty-state">
+                    <i class="fas fa-search"></i>
+                    <h3>No recipes found</h3>
+                    <p>Try adding more ingredients or adjusting your filters</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Image Upload Tab -->
+        <div id="upload-tab" class="tab-content">
+            <div class="card">
+                <div class="section-header">
+                    <i class="fas fa-camera"></i>
+                    <h2>Find Recipes by Image</h2>
+                </div>
+                
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-light);">
+                    Upload a photo of ingredients and find matching recipes!
+                </p>
+
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <div id="upload-area" class="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload Food Image</h3>
+                        <p>Drag & drop your image here or click to browse</p>
+                        <p class="upload-hint">Supports JPG, PNG - Max 5MB</p>
+                        <input type="file" id="image-input" accept="image/*" hidden>
+                    </div>
+                    
+                    <div id="image-preview" class="image-preview hidden">
+                        <img id="preview-img" src="" alt="Preview">
+                        <div class="image-preview-actions">
+                            <button class="btn-primary" onclick="App.analyzeImage()">
+                                <i class="fas fa-search"></i> Find Ingredients
+                            </button>
+                            <button class="btn-secondary" onclick="App.clearImage()">
+                                <i class="fas fa-times"></i> Remove Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Features -->
+                <div class="upload-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div class="feature" style="text-align: center; padding: 1.5rem; background: rgba(248, 249, 250, 0.8); border-radius: var(--border-radius);">
+                        <i class="fas fa-carrot" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--dark-color); margin-bottom: 0.5rem;">Ingredient Detection</h4>
+                        <p style="color: var(--text-light);">AI identifies ingredients from your photos automatically</p>
+                    </div>
+                    <div class="feature" style="text-align: center; padding: 1.5rem; background: rgba(248, 249, 250, 0.8); border-radius: var(--border-radius);">
+                        <i class="fas fa-utensils" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--dark-color); margin-bottom: 0.5rem;">Recipe Matching</h4>
+                        <p style="color: var(--text-light);">Find recipes using detected ingredients instantly</p>
+                    </div>
+                    <div class="feature" style="text-align: center; padding: 1.5rem; background: rgba(248, 249, 250, 0.8); border-radius: var(--border-radius);">
+                        <i class="fas fa-bolt" style="font-size: 2.5rem; color: var(--purple-accent); margin-bottom: 1rem;"></i>
+                        <h4 style="color: var(--dark-color); margin-bottom: 0.5rem;">Quick & Easy</h4>
+                        <p style="color: var(--text-light);">No typing required - just snap and search</p>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <button id="find-recipes" class="btn-primary find-btn">
-                <i class="fas fa-magic"></i> Find Recipes
-            </button>
-        </section>
-
-        <!-- Loading Section -->
-        <section id="loading-section" class="loading-section hidden">
-            <div class="loading-spinner"></div>
-            <p>Finding the perfect recipes for you...</p>
-        </section>
-
-        <!-- Results Section -->
-        <section id="results-section" class="hidden">
-            <div class="section-header">
-                <i class="fas fa-utensil-spoon"></i>
-                <h2>Recommended Recipes</h2>
-                <span id="results-count" class="results-count"></span>
+        <!-- Favorites Tab -->
+        <div id="favorites-tab" class="tab-content">
+            <div class="card">
+                <div class="section-header">
+                    <i class="fas fa-heart"></i>
+                    <h2>Your Favorite Recipes</h2>
+                    <span class="results-count" id="favorites-count"></span>
+                </div>
+                <div id="favorites-container">
+                    <!-- Favorites will be displayed here -->
+                </div>
             </div>
-            <div id="recipes-container" class="recipes-grid">
-                <!-- Recipes will be displayed here -->
-            </div>
-        </section>
+        </div>
 
-        <!-- No Results Section -->
-        <section id="no-results" class="hidden">
-            <div class="empty-state">
-                <i class="fas fa-search"></i>
-                <h3>No recipes found</h3>
-                <p>Try adding more ingredients or adjusting your filters</p>
+        <!-- Suggestions Tab -->
+        <div id="suggestions-tab" class="tab-content">
+            <div class="card">
+                <div class="section-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h2>Personalized Suggestions</h2>
+                </div>
+                <div id="suggestions-container">
+                    <!-- Suggestions will be displayed here -->
+                </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Recipe Modal -->
@@ -129,10 +223,16 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; Made by Chaitanay Kapoor 22BIT0001.</p>
+            <p>&copy; Made by Chaitanay Kapoor 22BIT0001 from VIT,Vellore.</p>
         </div>
     </footer>
 
+    <!-- Debug Button (Temporary) -->
+    <button onclick="App.debugFavorites()" style="position: fixed; bottom: 20px; right: 20px; z-index: 10000; padding: 10px; background: #ff6b6b; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 12px;">
+        🐛 Debug Favorites
+    </button>
+
+    <script src="js/imageRecognition.js"></script>
     <script src="js/api.js"></script>
     <script src="js/ui.js"></script>  
     <script src="js/app.js"></script>

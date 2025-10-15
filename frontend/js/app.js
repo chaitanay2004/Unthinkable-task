@@ -6,9 +6,12 @@ class App {
         this.allRecipes = [];
 
         this.bindEvents();
+        this.initImageUpload();
         this.loadFeaturedRecipes();
         this.loadAllRecipes();
         this.showTab('search');
+        
+        console.log("🚀 Smart Recipe Generator initialized with Image Recognition!");
     }
 
     static bindEvents() {
@@ -104,6 +107,8 @@ class App {
         recipes.forEach(recipe => {
             const isFavorite = this.favorites.includes(recipe.id);
             const userRating = this.ratings[recipe.id] || 0;
+            console.log(`Recipe: ${recipe.name}, User Rating: ${userRating}`);
+            
             const card = UI.createRecipeCard(recipe, isFavorite, userRating);
             container.appendChild(card);
         });
@@ -117,12 +122,16 @@ class App {
     }
 
     static async showRecipeDetails(recipeId) {
+        console.log('📖 SHOW RECIPE DETAILS - Recipe ID:', recipeId);
+        
         const result = await RecipeAPI.getRecipeById(recipeId);
         
         if (result.success) {
             const recipe = result.data;
             const isFavorite = this.favorites.includes(recipe.id);
             const userRating = this.ratings[recipe.id] || 0;
+            
+            console.log('Recipe loaded:', recipe.name, 'User rating:', userRating);
 
             const modalContent = `
                 <div class="recipe-details">
@@ -153,7 +162,11 @@ class App {
                         </button>
                     </div>
 
-                    ${UI.createRatingStars(recipeId, userRating).outerHTML}
+                    <!-- Rating Section -->
+                    <div class="rating-section">
+                        <h3>Your Rating</h3>
+                        <!-- Rating stars will be inserted here -->
+                    </div>
 
                     <div class="nutrition-info">
                         <h3>Nutrition (per serving)</h3>
@@ -202,33 +215,134 @@ class App {
             `;
 
             UI.showRecipeModal(modalContent);
+            
+            // Add rating stars after modal is shown
+            setTimeout(() => {
+                const ratingSection = document.querySelector('.rating-section');
+                if (ratingSection) {
+                    const ratingStars = UI.createRatingStars(recipeId, userRating);
+                    // Replace the placeholder with actual rating stars
+                    ratingSection.innerHTML = '<h3>Your Rating</h3>';
+                    ratingSection.appendChild(ratingStars);
+                }
+            }, 100);
+            
         } else {
             UI.showNotification('Failed to load recipe details', 'error');
         }
     }
 
     static toggleFavorite(recipeId) {
-        const index = this.favorites.indexOf(recipeId);
-        
-        if (index > -1) {
-            this.favorites.splice(index, 1);
-            UI.showNotification('Removed from favorites', 'info');
-        } else {
-            this.favorites.push(recipeId);
-            UI.showNotification('Added to favorites!', 'success');
-        }
-
-        localStorage.setItem('recipeFavorites', JSON.stringify(this.favorites));
-        this.updateFavoritesDisplay();
-        this.updateSuggestions();
+    const index = this.favorites.indexOf(recipeId);
+    
+    if (index > -1) {
+        this.favorites.splice(index, 1);
+        UI.showNotification('Removed from favorites', 'info');
+    } else {
+        this.favorites.push(recipeId);
+        UI.showNotification('Added to favorites!', 'success');
     }
 
+    localStorage.setItem('recipeFavorites', JSON.stringify(this.favorites));
+    
+    // Always update favorites display, regardless of current tab
+    this.updateFavoritesDisplay();
+    this.updateSuggestions();
+    
+    // Also refresh current display if we're on favorites tab
+    const currentTab = document.querySelector('.nav-tab.active')?.dataset.tab;
+    if (currentTab === 'favorites') {
+        this.refreshCurrentDisplay();
+    }
+}
+
     static rateRecipe(recipeId, rating) {
-        this.ratings[recipeId] = rating;
-        localStorage.setItem('recipeRatings', JSON.stringify(this.ratings));
+        console.log('⭐ RATE RECIPE CALLED - Recipe:', recipeId, 'Rating:', rating);
         
-        UI.showNotification(`Rated ${rating} stars!`, 'success');
-        this.updateSuggestions();
+        // Ensure recipeId is a number
+        recipeId = parseInt(recipeId);
+        rating = parseInt(rating);
+        
+        // Update ratings object
+        this.ratings[recipeId] = rating;
+        console.log('Updated ratings:', this.ratings);
+        
+        // Save to localStorage
+        localStorage.setItem('recipeRatings', JSON.stringify(this.ratings));
+        console.log('Saved to localStorage');
+        
+        // Show notification
+        UI.showNotification(`Rated ${rating} star${rating > 1 ? 's' : ''}!`, 'success');
+        
+        // Update ALL displays immediately
+        this.refreshCurrentDisplay();
+        
+        // Close and reopen modal to see updated rating
+        const modal = document.getElementById('recipe-modal');
+        if (!modal.classList.contains('hidden')) {
+            UI.hideRecipeModal();
+            // Reopen modal after a short delay to see the updated rating
+            setTimeout(() => {
+                this.showRecipeDetails(recipeId);
+            }, 500);
+        }
+    }
+
+    // NEW METHOD: Refresh current display after rating
+    static refreshCurrentDisplay() {
+        const activeTab = document.querySelector('.nav-tab.active')?.dataset.tab;
+        console.log('Refreshing current tab:', activeTab);
+        
+        switch(activeTab) {
+            case 'search':
+                this.refreshSearchResults();
+                break;
+            case 'favorites':
+                this.updateFavoritesDisplay();
+                break;
+            case 'suggestions':
+                this.updateSuggestions();
+                break;
+        }
+    }
+
+    // NEW METHOD: Refresh search results with updated ratings
+    static refreshSearchResults() {
+        const recipesContainer = document.getElementById('recipes-container');
+        const resultsSection = document.getElementById('results-section');
+        
+        if (!recipesContainer || resultsSection.classList.contains('hidden')) {
+            console.log('Search results not visible, skipping refresh');
+            return;
+        }
+        
+        console.log('Refreshing search results display...');
+        
+        // Update each recipe card with current rating data
+        const recipeCards = recipesContainer.querySelectorAll('.recipe-card');
+        recipeCards.forEach(card => {
+            const recipeTitle = card.querySelector('.recipe-title')?.textContent;
+            const recipe = this.allRecipes.find(r => r.name === recipeTitle);
+            
+            if (recipe) {
+                const userRating = this.ratings[recipe.id] || 0;
+                const ratingElement = card.querySelector('.recipe-rating span');
+                const userRatingDisplay = card.querySelector('.user-rating-display');
+                
+                if (ratingElement) {
+                    // Update the numeric rating
+                    ratingElement.textContent = userRating > 0 ? userRating.toFixed(1) : (recipe.rating || '4.5');
+                }
+                
+                if (userRatingDisplay) {
+                    // Update the visual star rating
+                    userRatingDisplay.innerHTML = userRating > 0 ? 
+                        `Your rating: ${'★'.repeat(userRating)}${'☆'.repeat(5 - userRating)}` : '';
+                }
+            }
+        });
+        
+        console.log('Search results refreshed with updated ratings');
     }
 
     static showTab(tabName) {
@@ -253,36 +367,71 @@ class App {
         this.updateFavoritesDisplay();
     }
 
-    static updateFavoritesDisplay() {
-        const favoritesContainer = document.getElementById('favorites-container');
-        
-        if (!favoritesContainer) return;
-        
-        if (this.favorites.length === 0) {
-            favoritesContainer.innerHTML = `
-                <div class="empty-state">
-                    <i class="fas fa-heart"></i>
-                    <h3>No favorites yet</h3>
-                    <p>Start adding recipes to your favorites by clicking the heart icon!</p>
-                </div>
-            `;
-            return;
-        }
-
-        // For now, show a message about favorites count
-        // In a real app, you would fetch and display the actual favorite recipes
+   static updateFavoritesDisplay() {
+    const favoritesContainer = document.getElementById('favorites-container');
+    const favoritesCount = document.getElementById('favorites-count');
+    
+    if (!favoritesContainer) {
+        console.log('Favorites container not found');
+        return;
+    }
+    
+    console.log('Updating favorites display. Current favorites:', this.favorites);
+    
+    if (this.favorites.length === 0) {
+        console.log('No favorites found, showing empty state');
         favoritesContainer.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-heart"></i>
-                <h3>Your Favorite Recipes</h3>
-                <p>You have ${this.favorites.length} favorite recipes saved!</p>
-                <p>Switch to the Search tab to browse and add more favorites.</p>
-                <div style="margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
-                    <p><strong>Favorite Recipe IDs:</strong> ${this.favorites.join(', ')}</p>
-                </div>
+                <h3>No favorites yet</h3>
+                <p>Start adding recipes to your favorites by clicking the heart icon!</p>
             </div>
         `;
+        // Update the count display
+        if (favoritesCount) {
+            favoritesCount.textContent = '0 recipes';
+        }
+        return;
     }
+
+    // Find favorite recipes from allRecipes
+    const favoriteRecipes = this.allRecipes.filter(recipe => 
+        this.favorites.includes(recipe.id)
+    );
+
+    console.log('Favorite recipes found:', favoriteRecipes.length);
+
+    // Update the count display
+    if (favoritesCount) {
+        favoritesCount.textContent = `${favoriteRecipes.length} recipes`;
+    }
+
+    if (favoriteRecipes.length === 0) {
+        favoritesContainer.innerHTML = `
+            <div class="empty-state">
+                <i class="fas fa-heart-broken"></i>
+                <h3>No favorite recipes found</h3>
+                <p>Some recipes may have been removed from our database.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // Show favorites grid
+    favoritesContainer.innerHTML = `
+        <div class="recipes-grid" id="favorites-grid"></div>
+    `;
+
+    const grid = document.getElementById('favorites-grid');
+    grid.innerHTML = '';
+    
+    favoriteRecipes.forEach(recipe => {
+        const isFavorite = this.favorites.includes(recipe.id);
+        const userRating = this.ratings[recipe.id] || 0;
+        const card = UI.createRecipeCard(recipe, isFavorite, userRating);
+        grid.appendChild(card);
+    });
+}
 
     static updateSuggestions() {
         if (this.allRecipes.length === 0) {
@@ -308,7 +457,7 @@ class App {
 
         // Get some random recipes as suggestions for now
         const suggestedRecipes = this.allRecipes
-            .filter(recipe => !this.favorites.includes(recipe.id)) // Don't suggest already favorited
+            .filter(recipe => !this.favorites.includes(recipe.id))
             .sort(() => 0.5 - Math.random())
             .slice(0, 4);
 
@@ -331,8 +480,10 @@ class App {
 
         const grid = document.getElementById('suggestions-grid');
         suggestedRecipes.forEach(recipe => {
+            const isFavorite = this.favorites.includes(recipe.id);
+            const userRating = this.ratings[recipe.id] || 0;
             const reason = this.getSuggestionReason(recipe);
-            const card = UI.createSuggestionCard(recipe, reason);
+            const card = UI.createSuggestionCard(recipe, reason, isFavorite, userRating);
             grid.appendChild(card);
         });
     }
@@ -375,6 +526,173 @@ class App {
         }
     }
 
+    // Image Upload Methods
+    static initImageUpload() {
+        const imageInput = document.getElementById('image-input');
+        const uploadArea = document.getElementById('upload-area');
+        
+        if (!imageInput || !uploadArea) {
+            console.warn('Image upload elements not found');
+            return;
+        }
+        
+        // Handle file selection
+        imageInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                this.validateAndPreviewImage(file);
+            }
+        });
+        
+        // Enhanced drag and drop support
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('drag-over');
+        });
+        
+        uploadArea.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('drag-over');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                this.validateAndPreviewImage(file);
+            } else {
+                UI.showNotification('Please drop a valid image file', 'warning');
+            }
+        });
+        
+        // Click anywhere on upload area to trigger file input
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                document.getElementById('image-input').click();
+            }
+        });
+    }
+
+    static validateAndPreviewImage(file) {
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            UI.showNotification('Please select an image file', 'warning');
+            return;
+        }
+        
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            UI.showNotification('Image size should be less than 5MB', 'warning');
+            return;
+        }
+        
+        this.previewImage(file);
+    }
+
+    static previewImage(file) {
+        const reader = new FileReader();
+        const previewImg = document.getElementById('preview-img');
+        const imagePreview = document.getElementById('image-preview');
+        const uploadArea = document.getElementById('upload-area');
+        
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            uploadArea.classList.add('hidden');
+            imagePreview.classList.remove('hidden');
+            
+            UI.showNotification('Image uploaded successfully! Click "Find Ingredients" to analyze.', 'success');
+        };
+        
+        reader.onerror = () => {
+            UI.showNotification('Failed to load image', 'error');
+        };
+        
+        reader.readAsDataURL(file);
+    }
+
+    static clearImage() {
+        const imageInput = document.getElementById('image-input');
+        const imagePreview = document.getElementById('image-preview');
+        const uploadArea = document.getElementById('upload-area');
+        const previewImg = document.getElementById('preview-img');
+        
+        imageInput.value = '';
+        previewImg.src = '';
+        imagePreview.classList.add('hidden');
+        uploadArea.classList.remove('hidden');
+        
+        UI.showNotification('Image removed', 'info');
+    }
+
+    static async analyzeImage() {
+        const imageInput = document.getElementById('image-input');
+        const analyzeBtn = document.querySelector('#image-preview .btn-primary');
+        
+        if (!imageInput.files[0]) {
+            UI.showNotification('Please select an image first', 'warning');
+            return;
+        }
+        
+        // Show loading state
+        const originalText = analyzeBtn.innerHTML;
+        analyzeBtn.classList.add('analyzing');
+        
+        try {
+            UI.showNotification('🔍 Analyzing your image for ingredients...', 'info');
+            
+            const result = await ImageRecognition.analyzeImage(imageInput.files[0]);
+            
+            analyzeBtn.classList.remove('analyzing');
+            analyzeBtn.innerHTML = originalText;
+            
+            if (result.success) {
+                if (result.ingredients.length > 0) {
+                    // Add recognized ingredients to the current list
+                    let newIngredientsCount = 0;
+                    result.ingredients.forEach(ingredient => {
+                        if (!this.userIngredients.includes(ingredient)) {
+                            this.userIngredients.push(ingredient);
+                            newIngredientsCount++;
+                        }
+                    });
+                    
+                    this.updateIngredientsList();
+                    
+                    // Show success message with cuisine theme
+                    let successMessage = `Found ${result.ingredients.length} ingredients!`;
+                    if (result.cuisine) {
+                        successMessage += ` <span class="cuisine-badge">${result.cuisine} theme</span>`;
+                    }
+                    if (newIngredientsCount < result.ingredients.length) {
+                        successMessage += ` (${newIngredientsCount} new ingredients added)`;
+                    }
+                    
+                    // Create temporary element to show formatted message
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = successMessage;
+                    UI.showNotification(tempDiv.textContent, 'success');
+                    
+                    // Clear the image after successful analysis
+                    setTimeout(() => {
+                        this.clearImage();
+                    }, 2000);
+                    
+                } else {
+                    UI.showNotification('No ingredients detected in the image. Try a clearer photo!', 'warning');
+                }
+            } else {
+                UI.showNotification(result.error, 'error');
+            }
+            
+        } catch (error) {
+            analyzeBtn.classList.remove('analyzing');
+            analyzeBtn.innerHTML = originalText;
+            UI.showNotification('Failed to analyze image. Please try again.', 'error');
+            console.error('Image analysis error:', error);
+        }
+    }
+
     // Test connection method for debugging
     static async testConnection() {
         console.log("Testing backend connection...");
@@ -389,6 +707,37 @@ class App {
             return false;
         }
     }
+    static debugFavorites() {
+    console.log('=== FAVORITES DEBUG ===');
+    console.log('Favorites array:', this.favorites);
+    console.log('Favorites length:', this.favorites.length);
+    console.log('LocalStorage favorites:', JSON.parse(localStorage.getItem('recipeFavorites') || '[]'));
+    console.log('All recipes count:', this.allRecipes.length);
+    
+    const favoritesContainer = document.getElementById('favorites-container');
+    console.log('Favorites container exists:', !!favoritesContainer);
+    console.log('Current favorites tab HTML:', favoritesContainer?.innerHTML);
+    console.log('========================');
+}
+
+// Call this in your init method temporarily
+static init() {
+    this.userIngredients = [];
+    this.favorites = JSON.parse(localStorage.getItem('recipeFavorites')) || [];
+    this.ratings = JSON.parse(localStorage.getItem('recipeRatings')) || {};
+    this.allRecipes = [];
+
+    this.bindEvents();
+    this.initImageUpload();
+    this.loadFeaturedRecipes();
+    this.loadAllRecipes();
+    this.showTab('search');
+    
+    // Debug
+    this.debugFavorites();
+    
+    console.log("🚀 Smart Recipe Generator initialized with Image Recognition!");
+}
 }
 
 // Initialize app when DOM is loaded

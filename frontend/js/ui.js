@@ -71,57 +71,27 @@ class UI {
     }
 
     static createRecipeCard(recipe, isFavorite = false, userRating = 0) {
-        const card = document.createElement('div');
-        card.className = 'recipe-card';
-        card.innerHTML = `
-            <div class="recipe-image">
-                <i class="fas fa-utensils"></i>
-                <div class="recipe-actions">
-                    <button class="action-btn favorite ${isFavorite ? 'active' : ''}" 
-                            onclick="App.toggleFavorite(${recipe.id})">
-                        <i class="fas fa-heart"></i>
-                    </button>
+    console.log('Creating card for recipe:', recipe.name, 'User rating:', userRating);
+    
+    const card = document.createElement('div');
+    card.className = 'recipe-card';
+    card.innerHTML = `
+        <div class="recipe-image">
+            <i class="fas fa-utensils"></i>
+            <div class="recipe-actions">
+                <button class="action-btn favorite ${isFavorite ? 'active' : ''}" onclick="App.toggleFavorite(${recipe.id})">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+        </div>
+        <div class="recipe-content">
+            <div class="recipe-header">
+                <h3 class="recipe-title">${recipe.name}</h3>
+                <div class="recipe-rating">
+                    <i class="fas fa-star"></i>
+                    <span>${userRating > 0 ? userRating.toFixed(1) : (recipe.rating || '4.5')}</span>
                 </div>
             </div>
-            <div class="recipe-content">
-                <div class="recipe-header">
-                    <h3 class="recipe-title">${recipe.name}</h3>
-                    <div class="recipe-rating">
-                        <i class="fas fa-star"></i>
-                        <span>${this.calculateAverageRating(recipe)}</span>
-                    </div>
-                </div>
-                <div class="recipe-meta">
-                    <span class="meta-item">
-                        <i class="fas fa-clock"></i>
-                        ${recipe.cookingTime} min
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-signal"></i>
-                        ${recipe.difficulty}
-                    </span>
-                    <span class="meta-item">
-                        <i class="fas fa-users"></i>
-                        ${recipe.servings} servings
-                    </span>
-                </div>
-                <p class="recipe-description">${recipe.description}</p>
-                <div class="recipe-tags">
-                    ${recipe.dietary?.map(diet => `<span class="recipe-tag">${diet}</span>`).join('') || ''}
-                    <span class="recipe-tag">${recipe.cuisine}</span>
-                </div>
-            </div>
-        `;
-
-        card.onclick = () => App.showRecipeDetails(recipe.id);
-        return card;
-    }
-
-    static createSuggestionCard(recipe, reason) {
-        const card = document.createElement('div');
-        card.className = 'suggestion-card';
-        card.innerHTML = `
-            <h4>${recipe.name}</h4>
             <div class="recipe-meta">
                 <span class="meta-item">
                     <i class="fas fa-clock"></i>
@@ -131,14 +101,62 @@ class UI {
                     <i class="fas fa-signal"></i>
                     ${recipe.difficulty}
                 </span>
+                <span class="meta-item">
+                    <i class="fas fa-users"></i>
+                    ${recipe.servings} servings
+                </span>
             </div>
-            <p class="suggestion-reason">${reason}</p>
-            <button class="btn-secondary" onclick="App.showRecipeDetails(${recipe.id})">
-                View Recipe
-            </button>
-        `;
-        return card;
-    }
+            <p class="recipe-description">${recipe.description}</p>
+            <div class="user-rating-display" style="margin: 10px 0; font-size: 0.9rem; color: var(--warning-color);">
+                ${userRating > 0 ? `Your rating: ${'★'.repeat(userRating)}${'☆'.repeat(5 - userRating)}` : ''}
+            </div>
+            <div class="recipe-tags">
+                ${recipe.dietary?.map(diet => `<span class="recipe-tag">${diet}</span>`).join('') || ''}
+            </div>
+        </div>
+    `;
+    
+    card.addEventListener('click', (e) => {
+        // Don't trigger if clicking on action buttons
+        if (!e.target.closest('.recipe-actions')) {
+            App.showRecipeDetails(recipe.id);
+        }
+    });
+    
+    return card;
+}
+
+    static createSuggestionCard(recipe, reason, isFavorite = false, userRating = 0) {
+    const card = document.createElement('div');
+    card.className = 'suggestion-card';
+    card.innerHTML = `
+        <h4>${recipe.name}</h4>
+        <div class="recipe-meta">
+            <span class="meta-item">
+                <i class="fas fa-clock"></i>
+                ${recipe.cookingTime} min
+            </span>
+            <span class="meta-item">
+                <i class="fas fa-signal"></i>
+                ${recipe.difficulty}
+            </span>
+        </div>
+        <div class="recipe-rating" style="margin: 10px 0;">
+            <i class="fas fa-star"></i>
+            <span>${userRating > 0 ? userRating.toFixed(1) : (recipe.rating || '4.5')}</span>
+            ${userRating > 0 ? `<span style="color: var(--warning-color); margin-left: 8px;">Your rating: ${userRating}/5</span>` : ''}
+        </div>
+        <p class="recipe-description">${recipe.description}</p>
+        <div class="suggestion-reason">
+            <i class="fas fa-lightbulb"></i> ${reason}
+        </div>
+        <button class="btn-primary" onclick="App.showRecipeDetails(${recipe.id})" style="margin-top: 15px; width: 100%;">
+            <i class="fas fa-eye"></i> View Recipe
+        </button>
+    `;
+    
+    return card;
+}
 
     static calculateAverageRating(recipe) {
         // This would typically come from backend ratings
@@ -173,21 +191,84 @@ class UI {
         document.getElementById('recipe-modal').classList.add('hidden');
     }
 
-    static createRatingStars(recipeId, currentRating = 0) {
-        const container = document.createElement('div');
-        container.className = 'rating-system';
-        container.innerHTML = `
-            <span>Rate this recipe:</span>
-            <div class="rating-stars">
-                ${[1, 2, 3, 4, 5].map(star => `
-                    <span class="rating-star ${currentRating >= star ? 'active' : ''}" 
-                          data-rating="${star}"
-                          onclick="App.rateRecipe(${recipeId}, ${star})">
-                        ★
-                    </span>
-                `).join('')}
-            </div>
+    static createRatingStars(recipeId, userRating = 0) {
+    console.log('🎯 CREATE RATING STARS - Recipe:', recipeId, 'Current Rating:', userRating);
+    
+    const container = document.createElement('div');
+    container.className = 'rating-system';
+    container.style.margin = '20px 0';
+    container.style.padding = '15px';
+    container.style.background = 'rgba(248, 249, 250, 0.8)';
+    container.style.borderRadius = 'var(--border-radius)';
+    
+    const label = document.createElement('div');
+    label.textContent = 'Rate this recipe:';
+    label.style.marginBottom = '10px';
+    label.style.fontWeight = '600';
+    label.style.color = 'var(--dark-color)';
+    container.appendChild(label);
+    
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'rating-stars';
+    
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('span');
+        star.className = `rating-star ${i <= userRating ? 'active' : ''}`;
+        star.innerHTML = '★';
+        star.dataset.rating = i;
+        star.style.cssText = `
+            font-size: 2rem;
+            color: ${i <= userRating ? '#FFD700' : '#E0E0E0'};
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         `;
-        return container;
+        
+        // Add hover effect
+        star.addEventListener('mouseenter', () => {
+            starsContainer.querySelectorAll('.rating-star').forEach((s, index) => {
+                s.style.color = index + 1 <= i ? '#FFA500' : '#E0E0E0';
+            });
+        });
+        
+        star.addEventListener('mouseleave', () => {
+            starsContainer.querySelectorAll('.rating-star').forEach((s, index) => {
+                s.style.color = index + 1 <= userRating ? '#FFD700' : '#E0E0E0';
+            });
+        });
+        
+        star.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            console.log('🌟 STAR CLICKED - Rating:', i, 'Recipe:', recipeId);
+            
+            // Update visual state immediately
+            starsContainer.querySelectorAll('.rating-star').forEach((s, index) => {
+                const shouldBeActive = index + 1 <= i;
+                s.classList.toggle('active', shouldBeActive);
+                s.style.color = shouldBeActive ? '#FFD700' : '#E0E0E0';
+            });
+            
+            // Call the rating function
+            App.rateRecipe(recipeId, i);
+        });
+        
+        starsContainer.appendChild(star);
     }
+    
+    container.appendChild(starsContainer);
+    
+    // Add current rating display
+    const ratingDisplay = document.createElement('div');
+    ratingDisplay.style.marginTop = '10px';
+    ratingDisplay.style.fontSize = '0.9rem';
+    ratingDisplay.style.color = 'var(--text-light)';
+    ratingDisplay.innerHTML = userRating > 0 
+        ? `Your rating: <strong>${userRating}/5</strong> ${'★'.repeat(userRating)}${'☆'.repeat(5 - userRating)}`
+        : 'Not rated yet';
+    ratingDisplay.id = `rating-display-${recipeId}`;
+    container.appendChild(ratingDisplay);
+    
+    return container;
+}
 }
