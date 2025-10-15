@@ -3,14 +3,7 @@
   "version": "1.0.0",
   "description": "Frontend for Smart Recipe Generator",
   "main": "index.html",
-  "scripts": {
-    "start": "cd frontend && live-server --port=3000",
-    "dev": "cd frontend && live-server --port=3000"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "live-server": "^1.2.2"
-  },
+  "scripts": {},
   "keywords": ["recipes", "frontend", "cooking"],
   "author": "Your Name",
   "license": "MIT"
