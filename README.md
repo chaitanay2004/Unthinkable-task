@@ -63,6 +63,62 @@ User experience was prioritized through intuitive filtering, real-time search, a
 - ✅ Comprehensive documentation
 - ✅ Live deployment ready
 
+🍳 Key Functionalities
+1. Search Recipes
+Add ingredients in Search tab
+
+Apply filters (dietary, time, difficulty)
+
+Click "Find Recipes"
+
+2. Image Recognition
+Go to Image Search tab
+
+Upload food image (drag & drop or click)
+
+AI detects ingredients automatically
+
+Switch to Search tab to find recipes
+
+3. Favorites System
+Click heart icon ❤️ on any recipe
+
+View favorites in Favorites tab
+
+Remove by clicking heart again
+
+4. Rate Recipes
+Click any recipe to open details
+
+Rate with stars ⭐ (1-5)
+
+Ratings save automatically
+
+5. Personalized Suggestions
+Prerequisite: Add at least 1 recipe to favorites OR rate any recipe
+
+Go to Suggestions tab for recommendations
+
+Suggestion logic: Based on your favorite recipes and ratings
+
+💡 Quick Tips
+Start with basic ingredients: "tomato", "onion", "chicken"
+
+Use image upload for quick ingredient detection
+
+Rate recipes to improve suggestions
+
+Check favorites count to track saved recipes
+
+🎯 First-Time Setup
+Add ingredients → Find Recipes
+
+Add 2-3 recipes to favorites
+
+Rate some recipes
+
+Check Suggestions tab for personalized recommendations
+
 
 
 
