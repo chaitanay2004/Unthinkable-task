@@ -17,7 +17,7 @@ A full-stack web application that suggests recipes based on available ingredient
 **Frontend**: HTML5, CSS3, Vanilla JavaScript  
 **Backend**: Node.js, Express.js  
 **Database**: JSON file (for demo)  
-**Hosting**: Netlify (Frontend), Heroku/Railway (Backend)
+**Hosting**: Vercel (Frontend), Vercel (Backend)
 
 ## 📁 Project Structure
 
