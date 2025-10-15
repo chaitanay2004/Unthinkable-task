@@ -64,3 +64,7 @@ User experience was prioritized through intuitive filtering, real-time search, a
 - ✅ Live deployment ready
 
 
+
+
+BACKEND URL : https://unthinkable-backend-seven.vercel.app/
+FRONTEND URL : https://unthinkable-chaitanay-22bit0001.vercel.app/
