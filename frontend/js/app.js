@@ -698,7 +698,7 @@ class App {
         console.log("Testing backend connection...");
         
         try {
-            const response = await fetch('http://localhost:5001/api/health');
+            const response = await fetch(`https://unthinkable-backend-p1j490tsa-chaitanay2004s-projects.vercel.app/api/health`);
             const data = await response.json();
             console.log('✅ Backend connection successful:', data);
             return true;

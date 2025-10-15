@@ -84,7 +84,7 @@ class ImageRecognition {
         formData.append('image', imageFile);
         
         try {
-            const response = await fetch('http://localhost:5001/api/analyze-image', {
+            const response = await fetch('https://unthinkable-backend-p1j490tsa-chaitanay2004s-projects.vercel.app/api/analyze-image', {
                 method: 'POST',
                 body: formData
             });

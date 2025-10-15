@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = 'https://unthinkable-backend-p1j490tsa-chaitanay2004s-projects.vercel.app/api';
 
 class RecipeAPI {
     static async findRecipesByIngredients(ingredients, filters = {}) {
