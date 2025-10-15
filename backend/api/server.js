@@ -53,7 +53,9 @@ app.use('*', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📋 API Health: http://localhost:${PORT}/api/health`);
-});
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on http://localhost:${PORT}`);
+//   console.log(`📋 API Health: http://localhost:${PORT}/api/health`);
+// });
+
+module.exports = app;

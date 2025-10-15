@@ -38,7 +38,7 @@ smart-recipe-generator/
 └── README.md
 ```
 
-## 🎯 Approach 
+## 🎯 Approach
 
 The Smart Recipe Generator was built with a user-centric approach focusing on simplicity and performance. The frontend uses vanilla JavaScript for fast loading and smooth interactions, with a responsive design that works across all devices. The backend employs a RESTful API architecture with Express.js, providing efficient recipe matching algorithms.
 
@@ -62,4 +62,5 @@ User experience was prioritized through intuitive filtering, real-time search, a
 - ✅ Personalized suggestions
 - ✅ Comprehensive documentation
 - ✅ Live deployment ready
+
 
