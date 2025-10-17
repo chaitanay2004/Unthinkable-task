@@ -49,18 +49,22 @@ smart-recipe-generator/
 
 ## 🎯 Approach
 
-The **Smart Recipe Generator** was built with a *user-centric approach* focusing on simplicity and performance.
-The frontend uses **vanilla JavaScript** for fast loading and smooth interactions, with a responsive design that works across all devices.
-The backend employs a **RESTful API architecture** with Express.js, providing efficient recipe matching algorithms.
+The **Smart Recipe Generator** was built with a *modern web tech stack* focusing on **performance** and **user experience**.
+The frontend uses **HTML5**, **CSS3**, and **vanilla JavaScript (ES6+)** for fast loading and smooth interactions, with no external frameworks to ensure optimal performance.
+**CSS Grid**, **Flexbox**, and *custom properties* create a **fully responsive design** across all devices.
 
-Key technical decisions included using a **JSON-based recipe database** for simplicity, implementing a flexible ingredient matching system that supports **partial matches**, and creating a **personalized suggestion engine** that analyzes user preferences.
+The backend employs a **RESTful API architecture** with **Node.js** and **Express.js**, providing efficient recipe matching algorithms.
+Data persistence is managed through **localStorage** to store user preferences, favorites, and ratings.
+The application utilizes **Font Awesome** for icons and follows *modular JavaScript patterns* with clear separation between **UI**, **API**, and **business logic** layers.
 
-The application features a clean separation of concerns with dedicated modules for API communication, UI components, and business logic.
+Key technical decisions included using a **JSON-based recipe database** for simplicity, implementing a **flexible ingredient matching system** that supports **partial matches**, and building a **personalized suggestion engine** that analyzes user preferences.
 
-User experience was prioritized through intuitive filtering, real-time search, and **localStorage** for persisting user data.
+The application was designed for a clean separation of concerns with dedicated modules for API communication, UI components, and business logic.
+
+User experience was prioritized through intuitive filtering, responsive layouts, and **localStorage** for persisting user data.
 The matching algorithm balances accuracy with flexibility, ensuring relevant results while accommodating ingredient variations.
 
-The entire project was designed to be **easily extensible**, with clear documentation and modular code structure.
+The entire project was designed to be **easily extensible**, with *clean documentation* and a **modular structure** supporting future **AI integration** and **scalable recipe management**.
 
 ---
 
