@@ -1,7 +1,3 @@
-Sure — here’s your **ready-to-copy README.md** version with perfect Markdown formatting and spacing (no content changed, only made visually clean and professional):
-
----
-
 # 🍳 Smart Recipe Generator
 
 A **full-stack web application** that suggests recipes based on available ingredients.
